@@ -1,133 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="/asset/style/globals.dev.css">
+        <link rel="stylesheet" href="/asset/style/content.dev.css">
+        <link rel="stylesheet" href="/asset/style/nav.dev.css">
+        <script crossorigin="anonymous" src="/asset/script/pfr-mono.js" type="text/javascript" async defer></script>
+        <script crossorigin="anonymous" data-domain="maintenance.pfr.wtf" data-api="https://pfr.wtf/asset/vitals/pulse" src="https://pfr.wtf/asset/vitals/ekg.js" defer></script>
+        
+        <title>Pork Fried Rice &bull; Down for Maintenance</title>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>#000000</title>
-    <link type="image/x-icon" rel="shortcut icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAHklEQVQ4T2NkYGD4z0ABYBw1gGE0DBhGw4BhWIQBAE5OEAELnjVHAAAAAElFTkSuQmCC">
-    <style>
-        :root {
-            --color: #000000;
-            --color-transparent: #00000022;
-        }
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-        ::selection {
-            background: var(--color-transparent);
-        }
+    </head>
+    <body data-color-mode="light" id="static-maintenance">
+        <main class="maint">
+            <maint-content>
+                <section>
+                    <h6>Well, fuck.</h6>
+                    <h1>Down for ✨Maintenance✨</h1>
 
-        html,
-        body {
-            background: var(--color);
-            height: 100%;
-            margin: 0;
-        }
+                    <p>We thought about putting in a fail whale, but we don&rsquo;t want Elon Musk to try and buy us. We have enough tech issues.</p>
 
-        body {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-        }
+                    <h4>Other stuff you can do while we&rsquo;re down&hellip;</h4>
 
-        #color {
-            background: white;
-            color: var(--color);
-            font-size: 2.5rem;
-            font-weight: 300;
-            padding: 2.25rem 3rem;
-            font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif;
-            cursor: text;
-        }
-    </style>
-</head>
-
-<body>
-    <p id="color">#000000</p>
-    <script>
-        function randomInt(min, max) {
-            return Math.floor(Math.random() * (max - min + 1) + min);
-        }
-
-        function hslToHex(h, s, l) {
-            h /= 360;
-            s /= 100;
-            l /= 100;
-            var r = void 0,
-                g = void 0,
-                b = void 0;
-            if (s === 0) {
-                r = g = b = l; // achromatic
-            } else {
-                var hue2rgb = function hue2rgb(p, q, t) {
-                    if (t < 0) t += 1;
-                    if (t > 1) t -= 1;
-                    if (t < 1 / 6) return p + (q - p) * 6 * t;
-                    if (t < 1 / 2) return q;
-                    if (t < 2 / 3) return p + (q - p) * (2 / 3 - t) * 6;
-                    return p;
-                };
-                var q = l < 0.5 ? l * (1 + s) : l + s - l * s;
-                var p = 2 * l - q;
-                r = hue2rgb(p, q, h + 1 / 3);
-                g = hue2rgb(p, q, h);
-                b = hue2rgb(p, q, h - 1 / 3);
-            }
-            var toHex = function toHex(x) {
-                var hex = Math.round(x * 255).toString(16);
-                return hex.length === 1 ? '0' + hex : hex;
-            };
-            return '#' + toHex(r) + toHex(g) + toHex(b);
-        }
-
-        window.onload = function () {
-            let stopProp = function (ev) {
-                ev.stopPropagation();
-            }
-
-            var colorElement = document.getElementById("color");
-            colorElement.addEventListener("click", stopProp, false);
-            colorElement.addEventListener("mousedown", stopProp, false);
-
-            var setFavicon = function (hex) {
-                var canvas = document.createElement('canvas');
-                canvas.width = 16;
-                canvas.height = 16;
-                var ctx = canvas.getContext('2d');
-                ctx.fillStyle = hex;
-                ctx.fillRect(0, 0, 16, 16);
-                document.getElementsByTagName('link')[0].href = canvas.toDataURL("image/x-icon");
-            }
-
-            var setRandomColor = function setRandomColor() {
-                var h = void 0,
-                    s = void 0,
-                    l = void 0;
-
-                h = randomInt(0, 359);
-                s = randomInt(55, 75);
-                l = randomInt(40, 60);
-
-                document.documentElement.style.setProperty('--color', 'hsl(' + h + ', ' + s + '%, ' + l + '%)');
-                var hex = hslToHex(h, s, l);
-                document.title = hex;
-                colorElement.innerHTML = hex;
-                document.documentElement.style.setProperty('--color-transparent', hex + '22');
-
-                setFavicon(hex);
-            };
-            setRandomColor();
-
-            var body = document.getElementsByTagName("body")[0];
-            body.addEventListener("mousedown", function (ev) {
-                ev.preventDefault();
-            });
-            body.addEventListener("click", function () {
-                setRandomColor();
-            }, false);
-        };
-    </script>
-</body>
-
+                    <ul>
+                        <li><a href="https://paypal.me/porkfried">Donate via PayPal</a><br />
+                        Yup, we even ask for money when we&rsquo;re down. 🤷‍♀️<br />
+                        (Cashapp: <a href="https://cash.app/$porkfriedricezine">$porkfriedricezine</a>)</li>
+                        <br />
+                        <li><a href="https://yuriofthepfr.substack.com/">Read Yuri&rsquo;s Substack</a><br />
+                        Yeah, Yuri posts multiple places.</li>
+                        <br />
+                        <li><a href="https://anchor.fm/tindersocialists">Listen to Tinder Socialists on Anchor.fm</a><br />
+                        Also on <a href="https://podcasts.apple.com/us/podcast/tinder-socialists/id1586143038">Apple Podcasts</a> and <a href="https://open.spotify.com/show/2nMizJIusTDdHxfNd41YN0">Spotify</a></li>
+                        <br />
+                        <li><a href="mailto:heyhey@pfr.wtf?subject=Subscribe to PFR Paper Zine!">E-mail us to subscribe to the Paper Edition</a><br />
+                        It&rsquo;s not as fast as getting it online, but it doesn&rsquo;t 404, either.</li>
+                    </ul>
+                </section>
+                <figure>
+                    <img class="img-delay"  
+                        data-sizes="auto"
+                        src="/asset/content/maint/proxy.webp"
+	                    data-originals="/asset/content/maint/300w.webp 300w,
+                                  /asset/content/maint/300w.avif 300w,
+                                  /asset/content/maint/500w.webp 500w,
+                                  /asset/content/maint/500w.avif 500w,
+                                  /asset/content/maint/700w.webp 700w,
+                                  /asset/content/maint/700w.avif 700w,
+	                                /asset/content/maint/900w.webp 900w,
+                                  /asset/content/maint/900w.avif 900w,
+	                                /asset/content/maint/1100w.webp 1100w,
+                                  /asset/content/maint/1100w.avif 1100w,
+	                                /asset/content/maint/1300w.webp 1300w,
+                                  /asset/content/maint/1300w.avif 1300w"
+                        alt="A nighttime photo of a large, multi-story police station engulfed in flame. The streets around the building are abandoned, with only cars, grocery carts, and a lone fire engine trying to keep the flames at bay. The fire was set in protest to murderer Derek Chavez lynching George Floyd on a public street. ACAB."
+                    />
+                </figure>
+            </maint-content>
+        </main>
+    </body>
 </html>
